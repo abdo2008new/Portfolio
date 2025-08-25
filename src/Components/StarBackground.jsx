@@ -81,7 +81,7 @@ return (
                     animationDuration: star.animationDuration + "s",
                 }}
             />
-        ))};
+        ))}
         {meteors.map((meteor) => (
             <div
                 key={meteor.id}
