@@ -57,7 +57,7 @@ export const ThenavBar = () => {
 <button className="mr-18 md:hidden p-2 text-foreground z-50"
 aria-label={isMenuOpen ? "Close menu" : "Open menu"} onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen? <X size={24}/> :<Menu size={24}/>}</button>
 
-<div className={cn("fixed inset-0 z-40 flex items-center justify-center  backdrop-blur-md",
+<div className={cn("fixed overflow-hidden inset-0 z-40 flex items-center justify-center  backdrop-blur-md",
     "transition-all duration-300 md:hidden",
     isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
 )}>
