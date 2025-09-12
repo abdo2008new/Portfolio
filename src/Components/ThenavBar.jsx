@@ -43,6 +43,20 @@ export const ThenavBar = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+
+useEffect(() => {
+if (isMenuOpen) {
+    document.body.style.overflow = "hidden"; // disable scroll
+} else {
+    document.body.style.overflow = ""; // reset scroll
+}
+
+  // cleanup on unmount (just in case)
+return () => {
+    document.body.style.overflow = "";
+};
+}, [isMenuOpen]);
+
     return (
         <nav className={cn(
             "fixed w-full z-50 transition-all duration-300",
@@ -81,26 +95,27 @@ export const ThenavBar = () => {
                 </button>
             </div>
 
-            {/* Mobile menu overlay - moved outside container */}
-            <div
-                className={cn(
-                    "fixed inset-0 z-0 flex flex-col items-center flex-center justify-center overflow-y-auto backdrop-blur-md bg-background/80 md:hidden transition-all duration-300",
-                    isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                )}
-            >
-                <div className="flex flex-col items-center space-y-8 text-xl">cd
-                    {navItems.map((item, key) => (
-                        <a
-                            key={key}
-                            href={item.href}
-                            className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            {item.name}
-                        </a>
-                    ))}
-                </div>
-            </div>
+            {/* Mobile menu */}
+<div
+className={cn(
+    "fixed inset-0 z-40 flex h-screen w-screen flex-col items-center justify-center backdrop-blur-md bg-background/80 md:hidden transition-all duration-300",
+    isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+)}
+>
+<div className="flex flex-col items-center justify-center space-y-10 text-3xl h-full">
+    {navItems.map((item, key) => (
+    <a
+        key={key}
+        href={item.href}
+        className="text-foreground/80 hover:text-primary transition-colors duration-300"
+        onClick={() => setIsMenuOpen(false)}
+    >
+        {item.name}
+    </a>
+    ))}
+</div>
+</div>
+
         </nav>
     );
 };
