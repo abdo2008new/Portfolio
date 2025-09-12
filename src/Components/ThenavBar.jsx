@@ -88,12 +88,12 @@ aria-label={isMenuOpen ? "Close menu" : "Open menu"} onClick={() => setIsMenuOpe
 
 <div
     className={cn(
-        "fixed inset-0 z-40 flex items-center justify-center backdrop-blur-md bg-background/80",
-        "transition-all duration-300 md:hidden",
-        isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-    )}
+    "fixed inset-0 z-40 flex flex-col items-center justify-center overflow-y-auto backdrop-blur-md bg-background/80",
+    "transition-all duration-300 md:hidden",
+    isMenuOpen
+    ? "opacity-100 pointer-events-auto"
+    : "opacity-0 pointer-events-none"
+)}
 >
             <div className="flex flex-col items-center space-y-8 text-xl">
                 {navItems.map((item,key) => (
