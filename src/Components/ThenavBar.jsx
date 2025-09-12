@@ -99,7 +99,7 @@ return () => {
 <div
 className={cn(
     "fixed inset-0 z-40 flex h-screen w-screen flex-col items-center justify-center backdrop-blur-md bg-background/80 md:hidden transition-all duration-300",
-    isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+    isMenuOpen ? "opacity-200 pointer-events-auto" : "opacity-0 pointer-events-none"
 )}
 >
 <div className="flex flex-col items-center justify-center space-y-10 text-3xl h-full">
