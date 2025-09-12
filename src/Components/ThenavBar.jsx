@@ -83,7 +83,13 @@ aria-label={isMenuOpen ? "Close menu" : "Open menu"} onClick={() => setIsMenuOpe
 
 <div
 className={cn(
-"absolute top-0 left-0 w-full z-40 flex flex-col items-center pt-24 overflow-y-auto backdrop-blur-md bg-background/80 md:hidden transition-all duration-300",
+    "fixed inset-0 z-40 flex flex-col items-center justify-center overflow-y-auto backdrop-blur-md bg-background/80 md:hidden transition-all duration-300",
+    isMenuOpen
+    ? "opacity-100 pointer-events-auto"
+    : "opacity-0 pointer-events-none",
+    !isScrolled && isMenuOpen
+      ? "justify-start pt-24" // if at top, menu starts below navbar
+      : "justify-center"      // if scrolled down, menu centered
 )}
 >
 <div className="flex flex-col items-center space-y-8 text-xl">
@@ -97,7 +103,7 @@ className={cn(
         {item.name}
     </a>
     ))}
-    </div>
+</div>
 </div>
             </div>
         </nav>
