@@ -52,21 +52,7 @@ if (isMenuOpen && isMobile) {
     }
 };
 
-useEffect(() => {
-let scrollY = 0;
-if (isMenuOpen) {
-    scrollY = window.scrollY;
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
-    } else {
-    const y = document.body.style.top;
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.width = "";
-    window.scrollTo(0, parseInt(y || "0") * -1);
-}
-}, [isMenuOpen]);
+
 
 
 window.addEventListener("resize", handleResize);
