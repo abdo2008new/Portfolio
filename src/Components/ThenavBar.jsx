@@ -36,6 +36,15 @@ export const ThenavBar = () => {
         }
     }, [isMenuOpen]);
 
+    useEffect(() => {
+    const handleResize = () => {
+    if (window.innerWidth >= 768) {
+    setIsMenuOpen(false);
+    }
+};
+window.addEventListener("resize", handleResize);
+return () => window.removeEventListener("resize", handleResize);
+}, []);
 
     return (
         <nav className={cn("fixed w-full z-50  transition-all duration-300",
