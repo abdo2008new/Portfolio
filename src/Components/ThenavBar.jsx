@@ -51,21 +51,12 @@ if (isMenuOpen && isMobile) {
     setIsMenuOpen(false);
     }
 };
+
 useEffect(() => {
-    let scrollY = 0;
-    if (isMenuOpen) {
-    scrollY = window.scrollY;
+    if (isMenuOpen && window.innerWidth < 768) {
     document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
     } else {
-    const y = document.body.style.top;
-    document.body.style.overflow = "";
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.width = "";
-    if (y) window.scrollTo(0, parseInt(y) * -1);
+    document.body.style.overflow = "auto";
     }
 }, [isMenuOpen]);
 
@@ -109,10 +100,12 @@ return () => window.removeEventListener("resize", handleResize);
 aria-label={isMenuOpen ? "Close menu" : "Open menu"} onClick={() => setIsMenuOpen(prev => !prev)}>{isMenuOpen? <X size={24}/> :<Menu size={24}/>}</button>
 
 <div
-    className={cn(
+className={cn(
     "fixed inset-0 z-40 flex flex-col items-center pt-20 overflow-y-auto backdrop-blur-md bg-background/80",
     "transition-all duration-300 md:hidden",
-    isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+    isMenuOpen
+    ? "opacity-100 pointer-events-auto"
+    : "opacity-0 pointer-events-none"
 )}
 >
 <div className="flex flex-col items-center space-y-8 text-xl">
@@ -126,9 +119,10 @@ aria-label={isMenuOpen ? "Close menu" : "Open menu"} onClick={() => setIsMenuOpe
         {item.name}
     </a>
     ))}
+    </div>
 </div>
-</div>
-                </div>
+            </div>
         </nav>
     );
 };
+
