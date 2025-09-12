@@ -37,6 +37,15 @@ export const ThenavBar = () => {
     }, [isMenuOpen]);
 
     useEffect(() => {
+  const isMobile = window.innerWidth < 768; // Tailwind "md"
+if (isMenuOpen && isMobile) {
+    document.body.style.overflow = "hidden";
+} else {
+    document.body.style.overflow = "auto";
+}
+}, [isMenuOpen]);
+
+    useEffect(() => {
     const handleResize = () => {
     if (window.innerWidth >= 768) {
     setIsMenuOpen(false);
