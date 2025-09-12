@@ -24,6 +24,13 @@ export const ThenavBar = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     },[]);
+    useEffect(() => {
+    if (isMenuOpen) {
+    document.body.style.overflow = "hidden";
+    } else {
+    document.body.style.overflow = "auto";
+    }
+}, [isMenuOpen]);
 
 
     return (
