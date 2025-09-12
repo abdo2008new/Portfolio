@@ -13,7 +13,7 @@ const navItems = [
 
 export const ThenavBar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(true);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,16 +25,6 @@ export const ThenavBar = () => {
         };
     },[]);
 
-
-
-    
-    useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
-    }, [isMenuOpen]);
 
     useEffect(() => {
   const isMobile = window.innerWidth < 768; // Tailwind "md"
@@ -51,14 +41,6 @@ if (isMenuOpen && isMobile) {
     setIsMenuOpen(false);
     }
 };
-
-useEffect(() => {
-    if (isMenuOpen && window.innerWidth < 768) {
-    document.body.style.overflow = "hidden";
-    } else {
-    document.body.style.overflow = "auto";
-    }
-}, [isMenuOpen]);
 
 
 
@@ -101,11 +83,7 @@ aria-label={isMenuOpen ? "Close menu" : "Open menu"} onClick={() => setIsMenuOpe
 
 <div
 className={cn(
-    "fixed inset-0 z-40 flex flex-col items-center pt-20 overflow-y-auto backdrop-blur-md bg-background/80",
-    "transition-all duration-300 md:hidden",
-    isMenuOpen
-    ? "opacity-100 pointer-events-auto"
-    : "opacity-0 pointer-events-none"
+"absolute top-0 left-0 w-full z-40 flex flex-col items-center pt-24 overflow-y-auto backdrop-blur-md bg-background/80 md:hidden transition-all duration-300",
 )}
 >
 <div className="flex flex-col items-center space-y-8 text-xl">
