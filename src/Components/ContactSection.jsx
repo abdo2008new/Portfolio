@@ -2,10 +2,17 @@ import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Send } from "lucide
 import { cn } from "../Lib/Utils.js";
 import emailjs from "emailjs-com";
 import { useRef, useState } from "react";
+import { QrCode } from "lucide-react";
+import { QRCodeCanvas } from "qrcode.react";
+
 
 export const ContactSection = () => {
 const formRef = useRef();
 const [loading, setLoading] = useState(false);
+
+
+//qr code state
+const [showQR, setShowQR] = useState(false);
 
 const sendEmail = (e) => {
     e.preventDefault();
@@ -99,6 +106,41 @@ return (
                 </a>
             </div>
             </div>
+            <div className="pt-8 text-center">
+    <h4 className="font-medium mb-4">Scan My QR</h4>
+    
+  {/* Bouton icône */}
+    <button
+    onClick={() => setShowQR(true)}
+    className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition"
+    >
+    <QrCode className="h-6 w-6 text-primary" />
+    </button>
+
+  {/* Modal QR Code */}
+    {showQR && (
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+        <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+        <QRCodeCanvas
+            value="https://portfolio-mu-ebon-37.vercel.app/"
+            size={200}
+            bgColor="#ffffff"
+            fgColor="#000000"
+            className="mx-auto"
+        />
+        <p className="mt-4 text-sm text-muted-foreground">
+            Scannez pour visiter mon portfolio
+        </p>
+        <button
+            onClick={() => setShowQR(false)}
+            className="mt-4 px-4 py-2 rounded-md bg-primary text-white hover:bg-primary/80"
+        >
+            Fermer
+        </button>
+        </div>
+    </div>
+    )}
+</div>
         </div>
 
           {/* RIGHT SIDE FORM */}
