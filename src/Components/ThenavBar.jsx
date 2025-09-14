@@ -59,7 +59,7 @@ return () => {
 
     return (
         <nav className={cn(
-            "fixed w-full z-50 transition-all duration-300",
+            "relative z-10 fixed w-full z-50 transition-all duration-300",
             isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
         )}>
             <div className="container flex items-center justify-between">
@@ -87,7 +87,7 @@ return () => {
 
                 {/* Mobile menu button */}
                 <button
-                    className="mr-18 md:hidden p-2 text-foreground z-50"
+                    className=" mr-18 md:hidden p-2 text-foreground z-50"
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     onClick={() => setIsMenuOpen(prev => !prev)}
                 >

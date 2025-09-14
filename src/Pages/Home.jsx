@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeToggle } from '../Components/ThemeToggle';
-import { StarBackground } from '../Components/StarBackground.jsx';
+import { GalaxyBackground } from '../Components/GalaxyBackground.jsx';
 import { ThenavBar } from '../Components/ThenavBar.jsx';
 import { HomeSection } from '../Components/HomeSection.jsx';
 import { AboutSection } from '../Components/AboutSection.jsx';
@@ -18,7 +18,7 @@ export const Home = ()=>{
         {/* theme toggle */}
     <ThemeToggle />
         {/* background effects*/}
-    <StarBackground />
+    <GalaxyBackground />
         {/* Navbar */}
     <ThenavBar />
         {/* Main Content */}
