@@ -95,10 +95,10 @@ return (
             <div className="pt-8">
             <h4 className="font-medium mb-4">Connect With Me</h4>
             <div className="flex space-x-4 justify-center">
-                <a target="_blank" href="https://www.linkedin.com/in/abderrahmane-tamine/">
+                <a target="_blank" href="https://www.linkedin.com/in/abderrahmane-tmn/">
                 <Linkedin className="h-6 w-6 text-primary" />
                 </a>
-                <a target="_blank" href="https://www.instagram.com/abderrahmane_tmn/">
+                <a target="_blank" href="https://www.instagram.com/da7man_tmn?exln=MTQ5djQxODM5Ymc1YQ%3D%3D&utm_source=qr_code">
                 <Instagram className="h-6 w-6 text-primary" />
                 </a>
                 <a target="_blank" href="https://www.facebook.com/abderrahmene.tamine">
