@@ -86,7 +86,7 @@ return (
                 <div className="p-3 rounded-full bg-primary/10">
                 <MapPin className="h-6 w-6 text-primary" />
                 </div>
-                <div>
+                <div>git push
                 <h4 className="font-medium">Location</h4>
                 <span className="text-muted-foreground">Alger, BabaHassen</span>
                 </div>

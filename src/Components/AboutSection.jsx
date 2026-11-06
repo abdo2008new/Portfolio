@@ -25,7 +25,7 @@ export const AboutSection = () => {
         </p>
         <div className="relative z-10 flex flex-col sm:flex-row gap-4 pt-4 justify-center">
         <a href="#contact" className="cosmic-button"> Get in Touch</a>
-        <a href="/projects/Abderrahmane-tamine%20CV.pdf" download className="px-6 py-2 border border-primary text-primary rounded-md hover:bg-primary hover:text-background transition-colors duration-300">Download CV</a>
+        <a href="/CV Abderrahmane Tamine.pdf" download className="px-6 py-2 border border-primary text-primary rounded-md hover:bg-primary hover:text-background transition-colors duration-300">Download CV</a>
         </div>
             </div>
             <div className="grid grid-cols-1 gap-6">
